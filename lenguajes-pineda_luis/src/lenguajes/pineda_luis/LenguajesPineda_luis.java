@@ -17,6 +17,9 @@ public class LenguajesPineda_luis {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Mi primer programa de java");
+        
+        Imc objeto=new Imc();
+        System.out.println(objeto.calcular());
     }
     
 }
