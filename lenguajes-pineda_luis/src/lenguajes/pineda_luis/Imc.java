@@ -12,7 +12,11 @@ package lenguajes.pineda_luis;
 public class Imc {
     float peso;
     float altura;
-    
+      
+    public Imc (float p, float a ){
+        peso =p;
+        altura =a;
+    }
     public Imc(){
         peso=77f;
         altura=1.77f;
@@ -38,6 +42,18 @@ public class Imc {
 
 public float calcular(){
 float resultadoImc=peso/(altura*altura);
+if (resultadoImc<20){
+    System.out.println(" Eres anorexico te moriras: ");
+} 
+if (resultadoImc>=20&&resultadoImc<=25){
+    System.out.println(" Estas bien sano : ");
+} 
+if (resultadoImc>=25&&resultadoImc<=30){
+    System.out.println(" Te pasate de tamales: ");
+} 
+if (resultadoImc>30){
+    System.out.println(" eres un tinaco con patas: ");
+} 
 return resultadoImc;
 }
 }
