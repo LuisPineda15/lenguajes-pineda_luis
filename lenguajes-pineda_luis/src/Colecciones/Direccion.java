@@ -1,7 +1,7 @@
 
 package Colecciones;
-
-public class Direccion {
+import java.io.Serializable;
+public class Direccion implements Serializable{
      private String calle;
     private long cp;
     private String colonia;

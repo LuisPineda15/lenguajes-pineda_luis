@@ -9,7 +9,8 @@ package Colecciones;
  *
  * @author T-107
  */
-public class Usuario {
+import java.io.Serializable;
+public class Usuario implements Serializable{
      private String login;
    private String password;
    private Direccion direccion;
