@@ -19,6 +19,9 @@ public class PersistenciaUsuario2 {
 public void guardar(Usuario u)throws Exception{
     //Este es el mas dificil, porque este usa el de abajo
     
+    //File f=new File("Aqui va la direccion del archivo donde lo vas a guardar");
+    //if(f.exists())usuarios=buscarTodos();
+    
 }
 
 public ArrayList<Usuario> buscarTodos()throws Exception{
@@ -27,6 +30,7 @@ public ArrayList<Usuario> buscarTodos()throws Exception{
 }
 
 public Usuario buscarUno(Usuario u)throws Exception{
+    //File f=new File("Aqui va la direccion del archivo donde lo vas a guardar");
     //Aqui va tu otra tarea
     return u;
     }
