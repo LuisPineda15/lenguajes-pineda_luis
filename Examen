@@ -1,0 +1,143 @@
+import java.io.Serializable;
+public class Departamento implements Serializable{
+    private String nombre;
+
+    public Departamento(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+}
+
+
+
+import java.io.Serializable;
+public class Empleado implements Serializable{
+ private String nombre;
+ private String paterno;
+ private long seguroSocial;
+ private float sueldoBase;
+ private int horasExtras;
+
+    public Empleado(String nombre, String paterno, long seguroSocial, float sueldoBase, int horasExtras) {
+        this.nombre = nombre;
+        this.paterno = paterno;
+        this.seguroSocial = seguroSocial;
+        this.sueldoBase = sueldoBase;
+        this.horasExtras = horasExtras;
+    }
+
+    public int getHorasExtras() {
+        return horasExtras;
+    }
+
+    public void setHorasExtras(int horasExtras) {
+        this.horasExtras = horasExtras;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPaterno() {
+        return paterno;
+    }
+
+    public void setPaterno(String paterno) {
+        this.paterno = paterno;
+    }
+
+    public long getSeguroSocial() {
+        return seguroSocial;
+    }
+
+    public void setSeguroSocial(long seguroSocial) {
+        this.seguroSocial = seguroSocial;
+    }
+
+    public float getSueldoBase() {
+        return sueldoBase;
+    }
+
+    public void setSueldoBase(float sueldoBase) {
+        this.sueldoBase = sueldoBase;
+    }
+    
+}
+
+
+
+
+
+import java.io.Serializable;
+public class Nomina implements Serializable{
+    private Empleado empleado;
+    private Departamento  departamento;
+
+    public Nomina(Empleado empleado, Departamento departamento) {
+        this.empleado = empleado;
+        this.departamento = departamento;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    
+}
+
+
+
+import java.util.ArrayList;
+import java.io.*;
+public class PersistenciaNominas {
+    ArrayList<Nomina> nomina;
+     public PersistenciaNominas()    {
+         nomina = new ArrayList<Nomina>();
+         
+     }
+    public void guardar(Nomina n) throws Exception{
+        File f = new File("");
+        if(f.exists()) nomina = leerTodo();
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream ois = new ObjectOutputStream(fos);
+        nomina.add(n);
+        ois.writeObject(nomina);
+    }
+    public ArrayList<Nomina> leerTodo() throws Exception{
+        File f = new File("");
+        FileInputStream fis = new FileInputStream(f);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        nomina = (ArrayList<Nomina>) ois.readObject();
+        return nomina;
+    }
+    public Nomina buscarPorId(int id) throws Exception{
+        Nomina n = null;
+        nomina = leerTodo();
+        n = nomina.get(id);
+        return n;
+    }
+}
